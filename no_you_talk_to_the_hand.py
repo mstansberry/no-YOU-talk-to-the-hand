@@ -18,7 +18,6 @@ logging.basicConfig(stream=sys.stdout, level=logging.INFO, format='%(asctime)s %
 log = None
 
 
-
 SAMPLE_CONFIG = """
 #
 #
@@ -157,7 +156,7 @@ serverurl=unix:///tmp/vpnsupervisor.sock ; use a unix:// URL  for a unix socket
 
 {% for tunnel in tunnels %}
 [program:{{ tunnel.name }}]
-command=bash -c "{{tunnel.proxy.wrap_cmd}} sshuttle -vvv {{tunnel.proxy.sshuttle_args}} -r {{ tunnel.proxy.target}}{%for include in tunnel.forwards.include%} {{include}}{%endfor%} {%for exclude in tunnel.forwards.exclude%}-x {{exclude}} {%endfor%}"
+command=bash -c "{{tunnel.proxy.wrap_cmd}} sshuttle {{tunnel.proxy.sshuttle_args}} -r {{ tunnel.proxy.target}}{%for include in tunnel.forwards.include%} {{include}}{%endfor%} {%for exclude in tunnel.forwards.exclude%}-x {{exclude}} {%endfor%}"
 autostart=false
 autorestart=false
 redirect_stderr=true
@@ -810,4 +809,3 @@ def start(config):
 
 if __name__ == '__main__':
     cli()
-

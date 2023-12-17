@@ -39,8 +39,7 @@ setup(
         'jinja2',
         'six',
         'requests>=2.20.0',
-        'futures',
-        'sshuttle==0.78.1'
+        'sshuttle==1.1.1'
     ],
 
     entry_points='''
