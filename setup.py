@@ -11,7 +11,7 @@ except:
 
 setup(
     name='no_you_talk_to_the_hand',
-    version='1.0.5',
+    version='1.0.6',
     author='flashashen',
     author_email='flashashen@gmail.com',
     description='nyttth: Boss your corporate network effortlessly. Automatic and organized tunneling with sshuttle + supervisord + yaml',
